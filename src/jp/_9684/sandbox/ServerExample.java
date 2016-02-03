@@ -19,6 +19,8 @@ public class ServerExample {
 
     /** */
     private static PrintStream out = System.out;
+    /** default port number */
+    private static final int DEFAULT_PORT_NUMBER = 62571;
 
     /**
      *
@@ -34,7 +36,13 @@ public class ServerExample {
         InputStreamReader isr = null;
         BufferedReader br = null;
         try {
-            int port = Integer.parseInt(args[0]);
+            int port;
+            if (args.length == 0) {
+                port = DEFAULT_PORT_NUMBER;
+            }
+            else {
+                port = Integer.parseInt(args[0]);
+            }
 
             serverSocket = new ServerSocket(port);
 
@@ -61,10 +69,10 @@ public class ServerExample {
             }
         }
         catch (IndexOutOfBoundsException e) {
-            println("ポート番号を指定してください。（49152 - 65535）");
+            println("args[0]:port (49152 - 65535)");
         }
         catch (NumberFormatException e) {
-            println("ポート番号は数字で指定してください。（49152 - 65535）");
+            println("ポート番号は数字で指定してください。");
         }
         catch (Exception e) {
             println(e);

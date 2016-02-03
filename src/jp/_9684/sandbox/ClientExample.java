@@ -34,7 +34,7 @@ public class ClientExample {
             os.flush();
         }
         catch (IndexOutOfBoundsException e) {
-            println("args[0]:host, args[1]:port, args[2]:message");
+            println("args[0]:ホスト名, args[1]:ポート番号, args[2]:メッセージ");
         }
         catch (NumberFormatException e) {
             println("ポート番号は数字で指定してください。");
